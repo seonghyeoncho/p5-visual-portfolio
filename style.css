@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0b0d1a;
+  --panel: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #eef0f7;
+  --muted: #9aa0b5;
+  --static: #ffb86b;
+  --dynamic: #7ee0c8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: #eef0f7;
+  font-family: "Space Grotesk", "Gowun Batang", system-ui, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  padding: 0 24px 64px;
+}
+
+/* 은은하게 흐르는 오로라 배경 */
+.aurora {
+  position: fixed;
+  inset: -30% -10% auto -10%;
+  height: 70vh;
+  z-index: -1;
+  background:
+    radial-gradient(40% 50% at 20% 30%, rgba(126, 224, 200, 0.25), transparent 70%),
+    radial-gradient(45% 55% at 80% 20%, rgba(255, 184, 107, 0.22), transparent 70%),
+    radial-gradient(40% 60% at 50% 80%, rgba(120, 130, 255, 0.25), transparent 70%);
+  filter: blur(40px);
+  animation: drift 16s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translate3d(-3%, -2%, 0) scale(1); }
+  to   { transform: translate3d(4%, 3%, 0) scale(1.12); }
+}
+
+/* 히어로 */
+.hero {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 72px 0 40px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  color: var(--dynamic);
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-family: "Gowun Batang", serif;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  background: linear-gradient(100deg, #ffffff, #ffd9a8 40%, #9bf3dc 75%, #b8c0ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lead {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+.lead strong { color: #fff; }
+
+.legend {
+  margin-top: 26px;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 0.82rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+.tag-static { color: var(--static); }
+.tag-dynamic { color: var(--dynamic); }
+
+/* 2 x 2 그리드 */
+#projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  width: 100%;
+  max-width: 920px;
+  margin: 10px auto 0;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s, border-color 0.35s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.28);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.45);
+}
+
+/* 작품 미리보기 셀 — 16:9 안에 600x400 캔버스를 축소 배치 */
+.cell {
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+.cell iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 400px;
+  border: none;
+  transform-origin: center center;
+  /* 셀(보통 ~426px 폭)에 맞게 축소 */
+  transform: translate(-50%, -50%) scale(0.71);
+  pointer-events: auto;
+}
+
+.meta {
+  padding: 18px 20px 22px;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  padding: 4px 11px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.badge.static  { color: var(--static);  background: rgba(255,184,107,0.12); border: 1px solid rgba(255,184,107,0.35); }
+.badge.dynamic { color: var(--dynamic); background: rgba(126,224,200,0.12); border: 1px solid rgba(126,224,200,0.35); }
+
+.meta h2 {
+  font-family: "Gowun Batang", serif;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+.meta p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.meta em { color: #cfd3e6; font-style: normal; }
+
+.foot {
+  text-align: center;
+  margin-top: 48px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+@media (max-width: 640px) {
+  #projects { grid-template-columns: 1fr; }
+  .cell iframe { transform: translate(-50%, -50%) scale(0.62); }
+}
