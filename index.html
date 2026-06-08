@@ -16,7 +16,7 @@
     <span class="topbar-meta">p5.js · 2026</span>
   </header>
 
-  <section class="hero">
+  <section class="hero reveal">
     <p class="kicker">CREATIVE CODING — MADE WITH p5.js</p>
     <h1 class="display">Visual<br />Portfolio<span class="display-accent">.</span></h1>
     <p class="lead">정적인 드로잉부터 인터랙티브 애니메이션까지, <strong>p5.js</strong>로 그려낸 네 개의 작업을 한자리에 모았습니다.
@@ -41,7 +41,7 @@
   <main id="projects">
 
     <!-- 1행: 과제 1 (정적) | 과제 4 (동적) -->
-    <article class="card">
+    <article class="card reveal" tabindex="0" role="button" aria-label="작품 확대해서 보기">
       <div class="cell"><iframe src="sample1/index.html" loading="lazy" title="과제 1"></iframe></div>
       <div class="meta">
         <div class="meta-top">
@@ -53,7 +53,7 @@
       </div>
     </article>
 
-    <article class="card">
+    <article class="card reveal" tabindex="0" role="button" aria-label="작품 확대해서 보기">
       <div class="cell"><iframe src="sample4/index.html" loading="lazy" title="과제 4"></iframe></div>
       <div class="meta">
         <div class="meta-top">
@@ -66,7 +66,7 @@
     </article>
 
     <!-- 2행: 과제 2 (정적) | 과제 3 (동적) -->
-    <article class="card">
+    <article class="card reveal" tabindex="0" role="button" aria-label="작품 확대해서 보기">
       <div class="cell"><iframe src="sample2/index.html" loading="lazy" title="과제 2"></iframe></div>
       <div class="meta">
         <div class="meta-top">
@@ -78,7 +78,7 @@
       </div>
     </article>
 
-    <article class="card">
+    <article class="card reveal" tabindex="0" role="button" aria-label="작품 확대해서 보기">
       <div class="cell"><iframe src="sample3/index.html" loading="lazy" title="과제 3"></iframe></div>
       <div class="meta">
         <div class="meta-top">
@@ -96,6 +96,30 @@
     <span>© 2026 · p5.js Visual Portfolio</span>
     <span class="foot-note">직접 누르지 않아도 모든 작품이 바로 보입니다.</span>
   </footer>
+
+  <!-- 작품 확대 라이트박스 -->
+  <div class="lightbox" id="lightbox" hidden>
+    <div class="lb-backdrop" data-close></div>
+    <div class="lb-panel" role="dialog" aria-modal="true" aria-labelledby="lb-title">
+      <header class="lb-head">
+        <div class="lb-meta">
+          <span class="lb-idx" id="lb-idx"></span>
+          <span class="lb-chip" id="lb-chip"></span>
+          <h3 class="lb-title" id="lb-title"></h3>
+        </div>
+        <button class="lb-close" id="lb-close" type="button" data-close>CLOSE ✕</button>
+      </header>
+      <div class="lb-stage" id="lb-stage">
+        <div class="lb-canvas" id="lb-canvas"><iframe id="lb-frame" title="작품 원본"></iframe></div>
+      </div>
+      <footer class="lb-foot">
+        <p class="lb-desc" id="lb-desc"></p>
+        <p class="lb-hint">원본 600×400 · 마우스·키보드로 직접 조작해보세요 · ESC로 닫기</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
 
 </body>
 </html>
