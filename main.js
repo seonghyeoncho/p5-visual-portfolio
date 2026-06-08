@@ -9,6 +9,9 @@
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // JS 활성 표시 (CSS reveal 게이팅용)
+  document.documentElement.classList.add('has-js');
+
   /* ---------- 1) 스크롤 진입 애니메이션 ---------- */
   var revealables = document.querySelectorAll('.reveal');
   if (reduce || !('IntersectionObserver' in window)) {

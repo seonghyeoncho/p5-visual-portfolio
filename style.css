@@ -271,13 +271,14 @@ body {
 .foot-note { color: var(--near-black); }
 
 /* ---------- Scroll reveal ---------- */
-.reveal {
+/* JS가 켜졌을 때만 숨김 → 스크립트 실패 시 작품은 항상 보임 */
+.has-js .reveal {
   opacity: 0;
   transform: translateY(26px);
   transition: opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1);
   will-change: opacity, transform;
 }
-.reveal.in { opacity: 1; transform: none; }
+.has-js .reveal.in { opacity: 1; transform: none; }
 #projects .card:nth-child(1) { transition-delay: 0.04s; }
 #projects .card:nth-child(2) { transition-delay: 0.12s; }
 #projects .card:nth-child(3) { transition-delay: 0.20s; }
@@ -293,6 +294,7 @@ body {
   justify-content: center;
   padding: 24px;
 }
+.lightbox[hidden] { display: none; }   /* hidden 속성이 display를 이기도록 */
 .lb-backdrop {
   position: absolute;
   inset: 0;
