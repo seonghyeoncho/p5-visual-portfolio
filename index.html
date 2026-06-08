@@ -3,47 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>p5.js 비주얼 포트폴리오</title>
+  <title>비주얼 포트폴리오 — p5.js</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="aurora"></div>
-
-  <header class="hero">
-    <p class="eyebrow">P5.JS · CREATIVE CODING</p>
-    <h1>나의 비주얼 포트폴리오</h1>
-    <p class="lead">정적인 한 장면에서 출발해, 시간과 상호작용으로 살아 움직이는 화면까지.<br />
-      네 개의 과제를 <strong>정적 → 동적</strong> 순서로 모았습니다.</p>
-    <div class="legend">
-      <span class="tag tag-static">● 정적 (Static)</span>
-      <span class="tag tag-dynamic">● 동적 (Dynamic)</span>
-    </div>
+  <header class="topbar">
+    <span class="wordmark">VISUAL<span class="dot">.</span>PORTFOLIO</span>
+    <span class="topbar-meta">p5.js · 2026</span>
   </header>
+
+  <section class="hero">
+    <p class="kicker">CREATIVE CODING — 과제 1–4</p>
+    <h1 class="display">정적에서<br />동적으로,<br /><span class="display-accent">한 화면씩.</span></h1>
+    <p class="lead">색과 도형으로 멈춰 있던 장면이 시간과 상호작용을 만나 살아 움직입니다.
+      네 개의 작업을 <strong>Static → Dynamic</strong> 흐름으로 정리했습니다. 접속하면 모든 작품이 바로 재생됩니다.</p>
+    <div class="legend">
+      <span class="chip chip-static">STATIC · 정적</span>
+      <span class="chip chip-dynamic">DYNAMIC · 동적</span>
+    </div>
+  </section>
+
+  <hr class="rule" />
 
   <main id="projects">
 
     <!-- 1행: 과제 1 (정적) | 과제 4 (동적) -->
     <article class="card">
-      <div class="cell">
-        <iframe src="sample1/index.html" loading="lazy" title="과제 1"></iframe>
-      </div>
+      <div class="cell"><iframe src="sample1/index.html" loading="lazy" title="과제 1"></iframe></div>
       <div class="meta">
-        <span class="badge static">과제 1 · 정적</span>
+        <div class="meta-top">
+          <span class="idx">01 / 04</span>
+          <span class="chip chip-static">STATIC</span>
+        </div>
         <h2>추상의 결</h2>
         <p>색과 형태만으로 감정을 담은 한 장의 추상 이미지.</p>
       </div>
     </article>
 
     <article class="card">
-      <div class="cell">
-        <iframe src="sample4/index.html" loading="lazy" title="과제 4"></iframe>
-      </div>
+      <div class="cell"><iframe src="sample4/index.html" loading="lazy" title="과제 4"></iframe></div>
       <div class="meta">
-        <span class="badge dynamic">과제 4 · 동적</span>
+        <div class="meta-top">
+          <span class="idx">04 / 04</span>
+          <span class="chip chip-dynamic">DYNAMIC</span>
+        </div>
         <h2>숨 쉬는 우주</h2>
         <p>sin·cos 주기로 행성이 맥동하고 혜성이 궤도를 도는 자동 애니메이션.</p>
       </div>
@@ -51,31 +58,34 @@
 
     <!-- 2행: 과제 2 (정적) | 과제 3 (동적) -->
     <article class="card">
-      <div class="cell">
-        <iframe src="sample2/index.html" loading="lazy" title="과제 2"></iframe>
-      </div>
+      <div class="cell"><iframe src="sample2/index.html" loading="lazy" title="과제 2"></iframe></div>
       <div class="meta">
-        <span class="badge static">과제 2 · 정적</span>
+        <div class="meta-top">
+          <span class="idx">02 / 04</span>
+          <span class="chip chip-static">STATIC</span>
+        </div>
         <h2>고요한 성역</h2>
         <p>도형의 기본기로 쌓아 올린 정지된 우주 풍경.</p>
       </div>
     </article>
 
     <article class="card">
-      <div class="cell">
-        <iframe src="sample3/index.html" loading="lazy" title="과제 3"></iframe>
-      </div>
+      <div class="cell"><iframe src="sample3/index.html" loading="lazy" title="과제 3"></iframe></div>
       <div class="meta">
-        <span class="badge dynamic">과제 3 · 동적</span>
+        <div class="meta-top">
+          <span class="idx">03 / 04</span>
+          <span class="chip chip-dynamic">DYNAMIC</span>
+        </div>
         <h2>너를 바라보는 친구</h2>
-        <p>마우스를 따라 눈동자가 움직이는 인터랙티브 캐릭터. <em>클릭·방향키·스페이스로 반응합니다.</em></p>
+        <p>마우스를 따라 눈동자가 움직이는 인터랙티브 캐릭터. <em>클릭 · 방향키 · 스페이스로 반응합니다.</em></p>
       </div>
     </article>
 
   </main>
 
   <footer class="foot">
-    <p>© 2026 · p5.js Visual Portfolio · 직접 누르지 않아도 모든 작품이 바로 보입니다.</p>
+    <span>© 2026 · p5.js Visual Portfolio</span>
+    <span class="foot-note">직접 누르지 않아도 모든 작품이 바로 보입니다.</span>
   </footer>
 
 </body>
